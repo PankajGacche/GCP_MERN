@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloservice
+  template:
+    metadata:
+      labels:
+        app: helloservice
+    spec:
+      containers:
+      - name: helloservice
+        image: gcr.io/upbeat-stratum-437711-d0/helloservice:v1
+        ports:
+        - containerPort: 3001

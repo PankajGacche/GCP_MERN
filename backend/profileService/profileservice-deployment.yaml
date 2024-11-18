@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profileservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: profileservice
+  template:
+    metadata:
+      labels:
+        app: profileservice
+    spec:
+      containers:
+      - name: profileservice
+        image: gcr.io/upbeat-stratum-437711-d0/profileservice:v1
+        ports:
+        - containerPort: 3002

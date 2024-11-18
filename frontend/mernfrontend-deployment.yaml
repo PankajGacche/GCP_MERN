@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mernfrontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mernfrontend
+  template:
+    metadata:
+      labels:
+        app: mernfrontend
+    spec:
+      containers:
+      - name: mernfrontend
+        image: gcr.io/upbeat-stratum-437711-d0/mernfrontend:v1
+        ports:
+        - containerPort: 80
